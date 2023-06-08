@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>House Price Predictor</title>
+</head>
+<body>
+	<h1>House Price Predictor</h1>
+	<label for="location">Location:</label>
+	<select id="location">
+		<option value="">Select a Location</option>
+		<!-- Populate options using locations from the API -->
+	</select>
+	<br><br>
+	<label for="sqft">Total Square Feet:</label>
+	<input type="number" id="sqft"><br><br>
+	<label for="bhk">BHK:</label>
+	<input type="number" id="bhk"><br><br>
+	<label for="bath">Bathroom:</label>
+	<input type="number" id="bath"><br><br>
+	<button onclick="predictPrice()">Predict Price</button><br><br>
+	<label for="result">Estimated Price:</label>
+	<input type="text" id="result" disabled>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="predict.js"></script>
+</body>
+</html>

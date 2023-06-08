@@ -1,0 +1,26 @@
+$(document).ready(function() {
+    // Populate options in the location dropdown using the API
+    $.getJSON("/api/get_location_names", function(data) {
+        var options = $("#location");
+        $.each(data, function() {
+            options.append($("<option />").val(this).text(this));
+        });
+    });
+});
+
+function predictPrice() {
+    var location = $("#location").val();
+    var sqft = $("#sqft").val();
+    var bhk = $("#bhk").val();
+    var bath = $("#bath").val();
+
+    // Send data to the API to get the estimated price
+    $.getJSON("/api/predict_home_price", {
+        location: location,
+        sqft: sqft,
+        bhk: bhk,
+        bath: bath
+    }, function(data) {
+        $("#result").val(data.price);
+    });
+}
